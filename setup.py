@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'yoloworld_node = yoloworld_detection.yoloworld_node:main',
             'yoloworld_capture_frame_send_to_server_node = yoloworld_detection.yoloworld_node_save_frame:main',
+            'yoloworld_bbox_node = yoloworld_detection.yoloworld_node_bbox:main',
         ],
         
     },
