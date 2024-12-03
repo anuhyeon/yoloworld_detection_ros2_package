@@ -23,6 +23,7 @@ setup(
             'yoloworld_node = yoloworld_detection.yoloworld_node:main',
             'yoloworld_capture_frame_send_to_server_node = yoloworld_detection.yoloworld_node_save_frame:main',
             'yoloworld_bbox_node = yoloworld_detection.yoloworld_node_bbox:main',
+            'yoloworld_3d_node = yoloworld_detection.yoloworld_node_depth:main',
         ],
         
     },
