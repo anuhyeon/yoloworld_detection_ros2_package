@@ -25,15 +25,6 @@ class DetectionNode(Node):
             self.detect_callback,
             qos_profile
         )
-        
-        #  # 카메라 뎁스 맵 토픽 구독 t
-        # self.depth_subscription = self.create_subscription(
-        #     Image,
-        #     'camera/camera/color/image_depth',
-        #     self.detect_callback,
-        #     qos_profile
-        # )
-
         # 사용자 입력 텍스트 토픽 구독
         self.text_subscription = self.create_subscription(
             String,
