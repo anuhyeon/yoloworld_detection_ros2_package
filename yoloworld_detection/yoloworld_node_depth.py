@@ -1,4 +1,5 @@
 import rclpy
+from dotenv import load_dotenv
 from rclpy.node import Node
 from sensor_msgs.msg import Image, CameraInfo
 from realsense2_camera_msgs.msg import Extrinsics
@@ -16,6 +17,10 @@ import json
 class DetectionNode(Node):
     def __init__(self):
         super().__init__('detection_node')
+        ##============= 환경변수 세팅 =================
+        # .env 파일 경로 지정
+        load_dotenv(dotenv_path="../.env")
+        server_ip = os.getenv("HOST")
 
         ###======================= 토픽 관련 세팅 =======================
         qos_profile = rclpy.qos.QoSProfile(depth=10)
@@ -80,7 +85,8 @@ class DetectionNode(Node):
         self.get_logger().info(f"Initial YOLOWorld class: {self.current_class}")
 
         # 서버 URL 설정
-        self.server_url = "http://192.168.0.186:8000/upload-image"  # 서버 URL
+        self.server_url = f"http://{server_ip}:8000/upload-image"  # 서버 URL 조합
+        self.get_logger().info(f"Server URL set to: {self.server_url}")
 
         # 이미지 저장 경로
         self.save_path = "/home/rcv/ros2_ws/frame"
